@@ -3415,7 +3415,7 @@ body {
     }
 
     #nav {
-        display: flex;
+        display:block;
         align-items: center;
         justify-content: space-between;
         padding: 0 10px;
@@ -3424,7 +3424,7 @@ body {
         top: 1;
         z-index: 1001;
         background-color: white;
-        box-sizing: border-box; /* Includes padding in the width */
+        box-sizing:content-box;
     }
 
     .hamburger {
