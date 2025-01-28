@@ -3471,7 +3471,7 @@ body {
 	.nav-links-container ul li a {
 		border-bottom: none; /* Remove the border */
 		background: none; /* Remove any background */
-		font-size: 20px;
+		font-size: 20px !important;
 	}
 }
 
