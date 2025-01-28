@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links-container');
 
     hamburger.addEventListener('click', function() {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        if (navLinks.style.transform === 'translateY(0%)') {
+            navLinks.style.transform = 'translateY(-100%)'; // Hide menu
+        } else {
+            navLinks.style.transform = 'translateY(0%)'; // Show menu
+        }
     });
 });
