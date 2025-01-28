@@ -3408,13 +3408,13 @@ body {
 }
 
 
-
 /* Specific styles for mobile */
 @media (max-width: 768px) {
-	.logo img {
-        transform: scale(0.8);  /* Adjust the scale factor as needed */
-        transition: transform 0.3s ease;  /* Smooth transition for scaling */
+    .logo img {
+        transform: scale(0.8); /* Adjust the scale factor as needed */
+        transition: transform 0.3s ease; /* Smooth transition for scaling */
     }
+
     body, html {
         margin: 0;
         padding: 0;
@@ -3423,16 +3423,16 @@ body {
     }
 
     #nav {
-        display:block;
+        display: block;
         align-items: center;
         justify-content: space-between;
         padding: 0 10px;
         width: 100%;
-        position:absolute;
+        position: absolute;
         top: 1;
         z-index: 1001;
         background-color: white;
-        box-sizing:content-box;
+        box-sizing: content-box;
     }
 
     .hamburger {
@@ -3447,22 +3447,24 @@ body {
         top: 10px;
         z-index: 1010;
     }
-	
-	.nav-links-container {
-		position: fixed;
-		top: 0;
-		left: 40%;
-		right: 0; /* Ensures it stretches to the right edge of the viewport */
-		background: rgba(255, 255, 255, 1);
-		flex-direction: column;
-		justify-content: center; /* Vertically center */
-		align-items: flex-start; /* Align items to the left */
-		z-index: 1000;
-		transition: transform 0.3s ease;
-		transform: translateY(-100%);
-		width: 100vw; /* Guarantees it takes up exactly the width of the viewport */
-		box-sizing: border-box; /* Prevents any padding from pushing the width beyond 100% */
-	}
+
+    .nav-links-container {
+        position: fixed;
+        top: 0;
+        left: 0; /* Ensure it starts from the left edge */
+        right: 0; /* Stretches to the right edge of the viewport */
+        background: rgba(255, 255, 255, 1);
+        flex-direction: column;
+        justify-content: flex-start; /* Vertically align items to the top */
+        align-items: flex-start; /* Align items to the left */
+        z-index: 1000;
+        transition: transform 0.3s ease;
+        transform: translateY(-100%);
+        width: 100vw; /* Guarantees it takes up exactly the width of the viewport */
+        box-sizing: border-box; /* Prevents padding from pushing the width beyond 100% */
+        max-height: 100vh; /* Limit height to the viewport height */
+        overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+    }
 
     .nav-links-container ul {
         list-style: none;
@@ -3474,16 +3476,15 @@ body {
 
     .nav-links-container ul li {
         width: 100%;
-		padding: 10px 0 !important; /* Add space between lines */
+        padding: 10px 0 !important; /* Add space between lines */
     }
 
-	.nav-links-container ul li a {
-		border-bottom: none; /* Remove the border */
-		background: none; /* Remove any background */
-		font-size: 20px;
-	}
+    .nav-links-container ul li a {
+        border-bottom: none; /* Remove the border */
+        background: none; /* Remove any background */
+        font-size: 20px;
+    }
 }
-
 
 
 
