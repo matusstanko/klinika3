@@ -137,6 +137,12 @@ body {
       linear-gradient(45deg, #56a2ef 15%, #1e6bc3 85%);
   }
 }
+@media (max-width: 768px) {
+	body {
+	  background-color: #1e6bc3; /* Fallback plain color */
+	  background-image: none; /* Disable complex layers */
+	}
+  }
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
