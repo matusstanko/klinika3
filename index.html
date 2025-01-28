@@ -58,20 +58,36 @@
                 <a href="#sluzby" class="active">Služby</a>
                 <span class="arrow"><i class="fas fa-chevron-down"></i></span>
                 <ul class="submenu hidden">
-                    <li><a href="#service1">Service 1</a></li>
-                    <li><a href="#service2">Service 2</a></li>
+                    <li><a href="prehliadky.html">Prehliadky</a></li>
+                    <li><a href="rekonstrukcie.html">Rekonštrukcie</a></li>
+                    <li><a href="endodoncia.html">Endodoncia</a></li>
+                    <li><a href="estetika.html">Estetika</a></li>
+                    <li><a href="proteotika.html">Proteotika</a></li>
+                    <li><a href="stomatochirurgia.html">Stomatochirurgia</a></li>
+                    <li><a href="implantologia.html">Implantológia</a></li>
+                    <li><a href="rtg.html">RTG</a></li>
+                    <li><a href="3dct.html">3D CT</a></li>
+                    <li><a href="dentalna_hygiena.html">Dentálna hygiena</a></li>
+                    <li><a href="dentalna_estetika.html">Dentálna estetika</a></li>
+                    <li><a href="dalsie_sluzby.html">Ďalšie služby</a></li>
                 </ul>
             </li>
             <li><a href="#reviews">Recenzie</a></li>
             <li>
-                <a href="#personal">Personál</a>
-                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-                <ul class="submenu hidden">
-                    <li><a href="#staff1">Staff 1</a></li>
-                    <li><a href="#staff2">Staff 2</a></li>
-                </ul>
-            </li>
-            <li><a href="#technologie">Technológie</a></li>
+                <a href="#personal">Personál</a></li>
+            <li><a href="#technologie">Technológie</a>
+				<span class="arrow"><i class="fas fa-chevron-down"></i></span>
+				<ul class="submenu hidden">
+					<li><a href="implantaty.html">Implantáty</a></li>
+					<li><a href="laser.html">Laser</a></li>
+					<li><a href="ozon.html">Ozón</a></li>
+					<li><a href="kamera.html">Kamera</a></li>
+					<li><a href="kresla.html">Kreslá</a></li>
+					<li><a href="ct.html">CT</a></li>
+					<li><a href="rontgen.html">Röntgen</a></li>
+					<li><a href="mikroskop.html">Mikroskop</a></li>
+				</ul>
+			</li>
             <li><a href="#kontakt">Kontakt</a></li>
         </ul>
     </div>
@@ -870,31 +886,32 @@
 	  
 		function openMap(mapChoice) {
 		  const googleMapsUrl = `https://maps.google.com/?q=${encodeURIComponent(address)}`;
-		  const appleMapsUrl = `maps://?q=${encodeURIComponent(address)}`;
+		  const appleMapsUrl = `https://maps.apple.com/?q=${encodeURIComponent(address)}`;
 	  
-		  // Detect the operating system
-		  const isMac = navigator.platform.toUpperCase().includes("MAC");
-		  const isWindows = navigator.platform.toUpperCase().includes("WIN");
+		  // Detect if the device can use Apple Maps
+		  const isAppleDevice = /(Mac|iPhone|iPad|iPod)/i.test(navigator.platform);
 	  
 		  if (mapChoice === "apple") {
-			if (isMac) {
-			  // Open Apple Maps app on macOS
-			  window.open(appleMapsUrl, "_self");
+			if (isAppleDevice) {
+			  // Try opening Apple Maps application
+			  window.location.href = `maps://?q=${encodeURIComponent(address)}`;
 			} else {
-			  // Fallback to Google Maps on non-macOS
-			  window.open(googleMapsUrl, "_blank");
+			  // Fallback: Open Apple Maps in a browser
+			  window.open(appleMapsUrl, "_blank");
 			}
 		  } else if (mapChoice === "google") {
-			if (isWindows) {
-			  // Open Google Maps in a new tab on Windows
-			  window.open(googleMapsUrl, "_blank");
+			if (navigator.userAgent.toLowerCase().includes("android") || !isAppleDevice) {
+			  // Open Google Maps app if possible
+			  window.location.href = `geo:0,0?q=${encodeURIComponent(address)}`;
 			} else {
-			  // Fallback to Apple Maps on non-Windows
+			  // Fallback: Open Google Maps in a browser
 			  window.open(googleMapsUrl, "_blank");
 			}
+		  } else {
+			console.error("Invalid map choice. Use 'apple' or 'google'.");
 		  }
 		}
-	</script>
+	  </script>
 </body>
 
 
