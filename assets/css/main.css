@@ -4903,9 +4903,10 @@ body {
 
 .technologie-carousel .carousel-controls .prev,
 .technologie-carousel .carousel-controls .next {
+	min-width: 1px !important;
     position: absolute;
     top: 0;
-    width: 2cm;
+    width: 1cm;
     height: 100%;
     pointer-events: auto;
     cursor: pointer;
