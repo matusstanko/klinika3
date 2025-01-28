@@ -3453,7 +3453,7 @@ body {
 		top: 0;
 		left: 40%;
 		right: 0; /* Ensures it stretches to the right edge of the viewport */
-		background: rgba(255, 255, 255, 0.95);
+		background: rgba(255, 255, 255, 1);
 		flex-direction: column;
 		justify-content: center; /* Vertically center */
 		align-items: flex-start; /* Align items to the left */
