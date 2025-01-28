@@ -7,6 +7,10 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<head>
 	<title>Stellar by HTML5 UP</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -50,9 +54,23 @@
     <!-- Navigation Links -->
     <div class="nav-links-container" id="navLinks">
         <ul>
-            <li><a href="#sluzby" class="active">Služby</a></li>
+            <li>
+                <a href="#sluzby" class="active">Služby</a>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                <ul class="submenu hidden">
+                    <li><a href="#service1">Service 1</a></li>
+                    <li><a href="#service2">Service 2</a></li>
+                </ul>
+            </li>
             <li><a href="#reviews">Recenzie</a></li>
-            <li><a href="#personal">Personál</a></li>
+            <li>
+                <a href="#personal">Personál</a>
+                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+                <ul class="submenu hidden">
+                    <li><a href="#staff1">Staff 1</a></li>
+                    <li><a href="#staff2">Staff 2</a></li>
+                </ul>
+            </li>
             <li><a href="#technologie">Technológie</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
         </ul>
@@ -841,6 +859,8 @@
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/carousel.js"></script>
 	<script src="assets/js/hamb.js"></script>
+	<script src="assets/js/navbar_klikacky.js"></script>
+
 
 	<script>
 		const address = "Štúrova 21, 066 01 Humenné, Slovakia";
