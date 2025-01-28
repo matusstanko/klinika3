@@ -3264,6 +3264,31 @@ body {
 		text-align: center;
 	}
 
+	#nav .logo {
+		/* Remove margin-right: auto; */
+		float: left;          /* Float logo to the left */
+		margin-left: 10px;    /* 10px from the left edge of #nav */
+	  }
+	  
+	  #nav .logo img {
+		height: 2em;        /* Keep your desired size */
+		width: auto;
+		transition: transform 0.2s ease;
+	  }
+	  
+	  
+	  #nav .logo img:hover {
+		transform: scale(1.1); /* Slight zoom on hover */
+	  }
+	  #nav ul {
+		display: inline-block;
+		margin-left: auto; /* Aligns the menu to the right */
+		padding: 0;
+		list-style: none;
+	  }
+
+
+
 		#nav input, #nav select, #nav textarea {
 			color: #636363;
 		}
@@ -3355,17 +3380,12 @@ body {
 					font-size: 0.9em;
 				}
 
-		@media screen and (max-width: 736px) {
+				@media screen and (max-width: 768px) {
+					#nav .logo {
+					  display: none; /* Hide the logo on screens smaller than 768px */
+					}
+				  }
 
-			#nav {
-				display: none;
-			}
-
-				#nav + #main {
-					padding-top: 0;
-				}
-
-		}
 
 /* Main */
 
@@ -4066,25 +4086,26 @@ body {
 
 	}
 
-	@media screen and (max-width: 768px) {
-		.tiles article > a .content {
-			max-height: none; /* Always show the content */
-			opacity: 1; /* Fully visible */
-		}
-	
-		.tiles article > .image {
-			transform: scale(1); /* Disable the zoom effect */
-		}
-	
-		.tiles article:hover > .image {
-			transform: none; /* No hover zoom effect */
-		}
-	
-		.tiles article:hover .content {
-			opacity: 1; /* Always fully visible on mobile */
-			max-height: none; /* Ensure it's fully shown */
-		}
+/* Existing default hover behavior on desktop goes here... */
+
+/* On mobile, always show text + optional dark overlay behind it */
+@media screen and (max-width: 768px) {
+	/* Force text visible */
+	.tiles article > a .content {
+	  max-height: none;
+	  opacity: 1;
 	}
+	/* Darken the image so white text is readable */
+	.tiles article > .image:before {
+	  background-color: rgba(0, 0, 0, 0.4); 
+	  opacity: 1; /* or 0.4, 0.5, whatever looks good */
+	}
+	/* Remove hover zoom if it annoys users on mobile */
+	.tiles article:hover > .image,
+	.tiles article > .image {
+	  transform: none;
+	}
+  }
 
 	@media screen and (max-width: 480px) {
 
@@ -4246,6 +4267,43 @@ body {
 	color: inherit; 
 	/* or color: #fff; (whatever you want for the arrow) */
   }
+
+
+  @media screen and (max-width: 768px) {
+	/* Switch to a single-column layout */
+	.reviews-carousel .carousel-item {
+	  display: grid;
+	  grid-template-columns: 1fr; /* Just one column now */
+	  gap: 15px;
+	  padding: 10px;
+	}
+  
+	/* Hide the second column => effectively only 3 reviews remain if each column had 3 */
+	.reviews-carousel .carousel-item .column:nth-child(2) {
+	  display: none;
+	}
+  
+	/* (Optional) If you want the avatar and text stacked vertically */
+	.reviews-carousel .review {
+	  flex-direction: column;
+	  align-items: flex-start;
+	}
+  
+	.reviews-carousel .review-avatar {
+	  margin-bottom: 10px;
+	  margin-right: 0;
+	}
+  }
+  
+  /* (Optional) Tweak spacing further for very small phones */
+  @media screen and (max-width: 480px) {
+	.reviews-carousel .carousel-item {
+	  gap: 10px;
+	  padding: 8px;
+	}
+  }
+  
+
 
 
 
@@ -4719,32 +4777,49 @@ body {
     background-color: #333;
 }
 
-/* 
-   Responsive adjustments: 
-   On smaller devices, let the image and text stack vertically 
-   for better readability.
-*/
+/* =========================================
+   MOBILE/TABLET STYLES (ONLY)
+   ========================================= */
+
 @media (max-width: 768px) {
-    .technologie-carousel .carousel-item {
-        flex-direction: column;
-    }
-    .technologie-carousel .column {
-        flex-direction: column;
-    }
-    .technologie-carousel .technology {
-        flex-direction: column;
-        text-align: center;
-    }
-    .technologie-carousel .technology img.technology-image {
-        max-width: 100%;
-        flex: none;
-        margin-right: 0;
-        margin-bottom: 15px;
-    }
-    .technologie-carousel .technology-content {
-        text-align: center;
-    }
+  /*
+     1) Hide the second column (and beyond) inside each .carousel-item
+        => only the first column remains => 3 items if that column has 3
+  */
+  .technologie-carousel .carousel-item .column:nth-child(n+2) {
+    display: none;
+  }
+
+  /* 2) Stack the remaining column's content vertically */
+  .technologie-carousel .carousel-item {
+    flex-direction: column;
+  }
+
+  .technologie-carousel .technology {
+    flex-direction: column; 
+    text-align: center;     
+    padding: 15px;         
+  }
+
+  .technologie-carousel .technology img.technology-image {
+    max-width: 100%;
+    flex: none;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .technologie-carousel .technology-content {
+    text-align: center;
+  }
 }
+
+/* (Optional) For very narrow phones, reduce spacing further */
+@media (max-width: 480px) {
+  .technologie-carousel .technology {
+    padding: 10px; 
+  }
+}
+
 
 
 
