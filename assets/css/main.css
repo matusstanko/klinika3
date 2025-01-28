@@ -3407,6 +3407,8 @@ body {
     background: black;
 }
 
+
+
 /* Specific styles for mobile */
 @media (max-width: 768px) {
 	.logo img {
@@ -3445,6 +3447,7 @@ body {
         top: 10px;
         z-index: 1010;
     }
+	
 	.nav-links-container {
 		position: fixed;
 		top: 0;
@@ -3477,7 +3480,7 @@ body {
 	.nav-links-container ul li a {
 		border-bottom: none; /* Remove the border */
 		background: none; /* Remove any background */
-		font-size: 20px !important;
+		font-size: 20px;
 	}
 }
 
@@ -3560,6 +3563,8 @@ body {
         margin: 5px 0; /* Add spacing between submenu items */
     }
 }
+
+
 
 
 
