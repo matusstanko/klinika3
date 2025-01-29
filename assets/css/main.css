@@ -3432,7 +3432,7 @@ body {
         position:absolute;
         top: 0;
         z-index: 1001;
-        background-color: transparent;
+        background-color: #1e6bc3;
         box-sizing:content-box;
     }
 
@@ -4680,6 +4680,15 @@ body {
   /* ======================= */
   
   @media (max-width: 768px) {
+	.doctors-carousel .carousel-controls .prev,
+  .doctors-carousel .carousel-controls .next {
+	min-width: 1px !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 10%;
+	}
 	.doctor-profile {
 	  padding: 20px;
 	}
