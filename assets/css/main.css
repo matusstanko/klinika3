@@ -3432,7 +3432,7 @@ body {
         position:absolute;
         top: 0;
         z-index: 1001;
-        background-color: transparent;
+        background-color: transparent !important;
         box-sizing:content-box;
     }
 
