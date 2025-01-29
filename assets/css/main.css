@@ -4546,6 +4546,8 @@ body {
   }
   
   .doctors-carousel .carousel-item {
+	opacity: 1;
+    transition: opacity 0.3s ease-in-out;
 	min-width: 100%;
 	box-sizing: border-box;
 	display: flex;
