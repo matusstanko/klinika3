@@ -4541,13 +4541,11 @@ body {
   }
   
   .doctors-carousel .carousel-container {
-	overflow: hidden; /* Ensures no unwanted flashing */
-    will-change: transform, opacity; /* Optimizes animations */
+	display: flex;
+	transition: transform 0.5s ease;
   }
   
   .doctors-carousel .carousel-item {
-	opacity: 1;
-    transition: opacity 0.3s ease-in-out;
 	min-width: 100%;
 	box-sizing: border-box;
 	display: flex;
