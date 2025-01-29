@@ -3420,7 +3420,7 @@ body {
         margin: 0;
         padding: 0;
         width: 100%; /* Ensures that the body and html do not exceed the viewport */
-        overflow-x: hidden; /* Prevents horizontal scrolling */
+        overflow-x: scroll; /* Prevents horizontal scrolling */
     }
 
     #nav {
