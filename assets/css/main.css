@@ -4398,20 +4398,28 @@ body {
   /* Make each button a 2 cm column along each edge */
   .reviews-carousel .carousel-controls .prev,
   .reviews-carousel .carousel-controls .next {
-	position: absolute;
-	top: 0;
-	width: 2cm;          /* Narrow clickable area on each edge */
-	height: 100%;
-	border: none;
-	background: none;    /* Fully transparent */
-	color: #fff;         /* Arrow color */
-	font-size: 2rem;     /* Adjust arrow size */
-	pointer-events: auto; 
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center; /* Centers arrow by default */
-  }
+    min-width: 1px !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1cm;
+    height: 20%;
+    pointer-events: auto;
+    cursor: pointer;
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
   
   /* Align the left arrow to the far left */
   .reviews-carousel .carousel-controls .prev {
@@ -4611,30 +4619,28 @@ body {
   /* 2) Narrow 2cm clickable strips on each edge */
   .doctors-carousel .carousel-controls .prev,
   .doctors-carousel .carousel-controls .next {
-	position: absolute;
-	top: 0;
-	width: 2cm;         /* Change to px/rem/etc. if desired */
-	height: 100%;
-	pointer-events: auto; /* Make these clickable */
-	cursor: pointer;
-  
-	/* Remove all visual styles to avoid outlines / hover boxes */
-	background: none !important;
-	border: none !important;
-	outline: none !important;
-	box-shadow: none !important;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-  
-	/* Arrow styling */
-	color: #fff;       /* Arrow color; adjust as needed */
-	font-size: 2rem;   /* Arrow size; adjust as needed */
-  
-	display: flex;
-	align-items: center;
-	justify-content: center; /* Centers arrow in the strip */
-  }
+    min-width: 1px !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5cm;
+    height: 80%;
+    pointer-events: auto;
+    cursor: pointer;
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
   
   /* 3) Position the left and right buttons on opposite edges */
   .doctors-carousel .carousel-controls .prev {
@@ -4903,11 +4909,12 @@ body {
 
 .technologie-carousel .carousel-controls .prev,
 .technologie-carousel .carousel-controls .next {
-	min-width: 1px !important;
+    min-width: 1px !important;
     position: absolute;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: 1cm;
-    height: 100%;
+    height: 20%;
     pointer-events: auto;
     cursor: pointer;
     background: none !important;
@@ -5053,3 +5060,149 @@ body {
 	margin: 0 auto;
 	text-align: center; /* Center-align text and content */
   }
+
+
+
+
+  /* pridat recenziu button */
+  .add-review-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.add-review-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #1877F2; /* Facebook blue */
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-review-btn i {
+    font-size: 1.5rem;
+}
+
+.add-review-btn:hover {
+    background-color: #0f5bb5;
+    transform: scale(1.05);
+}
+
+.add-review-btn:active {
+    transform: scale(0.95);
+}
+
+
+
+
+
+
+
+/* sekcia klinika */
+#clinic-gallery {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f4f4f4;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+/* lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 80px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Image inside lightbox */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+    margin-top: 0;
+}
+
+/* Close button */
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, opacity 0.2s;
+}
+
+.close-lightbox:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/* Navigation arrows */
+.prev-lightbox, .next-lightbox {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.prev-lightbox { left: 20px; }
+.next-lightbox { right: 20px; }
+
+.prev-lightbox:hover, .next-lightbox:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
