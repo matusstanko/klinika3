@@ -4541,8 +4541,8 @@ body {
   }
   
   .doctors-carousel .carousel-container {
-	display: flex;
-	transition: transform 0.5s ease;
+	overflow: hidden; /* Ensures no unwanted flashing */
+    will-change: transform, opacity; /* Optimizes animations */
   }
   
   .doctors-carousel .carousel-item {
