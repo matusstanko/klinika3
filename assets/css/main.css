@@ -3521,11 +3521,18 @@ body {
 
 /* arrow */
 .arrow {
-    font-size: 16px;  /* Adjust the arrow size */
-    color: #333;      /* Change the color */
-    transition: transform 0.3s ease;
     cursor: pointer;
+    font-size: 16px;  /* Keeps the arrow size */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+	display: inline-block; /* Important to allow transform */
 }
+
+/* Ensures arrow rotates when submenu is open */
+.arrow.open {
+    transform: rotate(90deg);
+}
+
+
 
 .arrow:hover {
     transform: translateY(3px);  /* Adds hover effect */
