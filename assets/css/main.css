@@ -3433,6 +3433,7 @@ body {
         top: 0;
         z-index: 1001;
         background-color: transparent !important;
+		color: transparent !important;
         box-sizing:content-box;
     }
 
