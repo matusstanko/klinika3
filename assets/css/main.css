@@ -4754,7 +4754,7 @@ body {
   
   /* Map Buttons */
   .map-button {
-    background: #1d3557; /* A modern dark blue */
+    background: #cfd6de !important; /* Richer, modern blue */
     color: white;
     border: none;
     border-radius: 10px;
